@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Ajouter un étudiant - School Manager{% endblock %}
+
+{% block content %}
+
+<section class="page-heading">
+    <p class="eyebrow">Scolarité</p>
+    <h1>Ajouter un étudiant</h1>
+    <p>Remplissez le formulaire pour inscrire un nouvel étudiant.</p>
+</section>
+
+<div class="content-card">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="button" type="submit">
+            Enregistrer
+        </button>
+    </form>
+
+    <p>
+        <a href="{% url 'students:student_list' %}">
+            ← Retour à la liste des étudiants
+        </a>
+    </p>
+
+</div>
+
+{% endblock %}

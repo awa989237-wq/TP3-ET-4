@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Enseignants - School Manager{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">Équipe pédagogique</p>
+    <h1>Nos enseignants</h1>
+</section>
+<div class="teacher-grid">
+    {% for teacher in teachers %}
+    <article class="content-card teacher-card">
+        <h2>{{ teacher.first_name }} {{ teacher.last_name }}</h2>
+        <p>{{ teacher.subject }}</p>
+        <a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a>
+    </article>
+    {% empty %}
+    <div class="content-card"><p class="empty">Aucun enseignant enregistré.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

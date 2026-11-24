@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}School Manager{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="nav-container">
+        <a class="brand" href="{% url 'pages:home' %}">School<span>Manager</span></a>
+        <nav>
+            <a href="{% url 'pages:home' %}">Accueil</a>
+            <a href="{% url 'students:student_list' %}">Étudiants</a>
+            <a href="{% url 'teachers:teacher_list' %}">Enseignants</a>
+            <a href="{% url 'pages:about' %}">À propos</a>
+            <a class="admin-link" href="{% url 'admin:index' %}">Administration</a>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+    <p>School Manager · Projet Django · ISEP-AT · 2026-2027</p>
+</footer>
+</body>
+</html>
